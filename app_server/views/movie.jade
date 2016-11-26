@@ -1,0 +1,198 @@
+extends layout
+
+block content
+  .row.page-header
+    .col-lg-12
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title   
+              .text-center     
+              strong
+                i 
+                  .text-center Top Casts
+            .circle-container
+              li
+                img(src='/images/omotola.jpeg')
+              li
+                img(src='/images/omotola.jpeg')
+              li
+                img(src='/images/omotola.jpeg', alt='omotola')
+              li
+                img(src='/images/omotola.jpeg')
+              li
+                img(src='/images/omotola.jpeg')
+              li
+                img(src='/images/omotola.jpeg')
+              li
+                img(src='/images/omotola.jpeg')
+              li
+                img(src='/images/omotola.jpeg')
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title 
+              .text-center
+              strong
+                i
+                  .text-center Countries/Cities
+            .panel-body
+              span.label.label-default
+                span.glyphicon.glyphicon-ok
+                strong| &nbsp;&nbsp; Nigeria
+              |&nbsp; 
+              span.label.label-default
+                span.glyphicon.glyphicon-ok
+                strong| &nbsp;&nbsp; America
+              |&nbsp;
+              span.label.label-default
+                span.glyphicon.glyphicon-ok
+                strong| &nbsp; United Kingdom
+              |&nbsp;&nbsp;
+
+              span.label.label-default
+                span.glyphicon.glyphicon-ok
+                strong| &nbsp; Ibadan
+              |&nbsp;
+        .col-xs-12.col-sm-6
+          p
+            h3
+              strong Movie Name: Koto Aiye (Year)
+          p.rating
+            strong|Ratings&nbsp;&nbsp;&nbsp;
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+          p
+            h5
+              strong Budget:
+          p
+            h5
+              strong Genre:
+          p
+            h5
+              strong Time:
+          p
+            h5
+              strong Available On:
+          p
+            h5
+              strong Writer:
+
+          p
+            h5
+              strong Writer:
+          p
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title
+                i
+                 .text-center Description
+          .panel-body
+            p Former dentist, Dr. King Schultz, buys the freedom of a slave, Django, and trains him with the intent to make him his deputy bounty hunter. Instead, he is led to the site of Django's wife who is under the hands of Calvin Candie, a ruthless plantation owner.
+    .col-xs-12.col-md-3
+      div#carousel.carousel.slide(data-ride='carousel')
+         ol.carousel-indicators
+          li(data-target='#carousel' data-slide-to='0' class='active')
+          li(data-target='#carousel' data-slide-to='0' class='active')
+          li(data-target='#carousel' data-slide-to='0' class='active')
+          li(data-target='#carousel' data-slide-to='0' class='active')
+          li(data-target='#carousel' data-slide-to='0' class='active')
+          li(data-target='#carousel' data-slide-to='0' class='active')
+         div.carousel-inner(role='listbox')
+          div.item.active: img.center-block(src='/images/5.jpg')
+          div.item: img.center-block(src='/images/6.jpg')
+          div.item: img.center-block(src='/images/1.jpg')
+          div.item: img.center-block(src='/images/2.jpg')
+          div.item: img.center-block(src='/images/3.jpg')
+          div.item: img.center-block(src='/images/4.jpg')
+         a.left.carousel-control(href='#carousel' role='button' data-slide='prev')
+          span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+          span(sr-only='true') 
+         a.right.carousel-control(href='#carousel' role='button' data-slide='next')
+          span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+          span(sr-only='true') 
+    .row
+      .col-xs-12.col-sm-9
+        .panel.panel-primary.review-panel
+          .panel-heading
+            .text-center
+              i 
+                strong Reviews
+            .panel-body.review-container
+              .row
+                .review
+                  .well.well-sm.review-header
+                    span.rating
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                    |&nbsp;
+
+                    span.reviewAuthor Abidemi Oni
+                    small.reviewTimestamp &nbsp; 18 July 1993
+                  .col-xs-12
+                    p What a great movie it was, Although the ending was quite uneven.
+              .row
+                .review
+                  .well.well-sm.review-header
+                    span.rating
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                    |&nbsp;
+
+                    span.reviewAuthor Abidemi Oni
+                    small.reviewTimestamp &nbsp; 18 July 1993
+                  .col-xs-12
+                    p What a great movie it was, Although the ending was quite uneven.
+              .row
+                .review
+                  .well.well-sm.review-header
+                    span.rating
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                      span.glyphicon.glyphicon-star
+                    |&nbsp;
+
+                    span.reviewAuthor Abidemi Oni
+                    small.reviewTimestamp &nbsp; 18 July 1993
+                  .col-xs-12
+                    bold What a great movie it was, Although the ending was quite uneven.
+    .row
+      .col-xs-12.col-sm-6
+        div(class="panel-group" id="accordion")
+          .panel.panel-primary
+            .panel-heading
+              h4.panel-title
+                |<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Professional Review 1 </a>
+            div(id="collapse1" class="panel-collapse collapse in")
+              .panel-body Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          .panel.panel-primary
+            .panel-heading
+              h4.panel-title
+                |<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Professional Review 2</a>
+            div(id="collapse2" class="panel-collapse collapse in")
+              .panel-body Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          .panel.panel-primary
+            .panel-heading
+              h4.panel-title
+                |<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Professional Review 3</a>
+            div(id="collapse3" class="panel-collapse collapse in")
+              .panel-body Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          .panel.panel-primary
+            .panel-heading
+              h4.panel-title
+                |<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Professional Review 4</a>
+            div(id="collapse4" class="panel-collapse collapse in")
+              .panel-body Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

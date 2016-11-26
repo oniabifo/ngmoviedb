@@ -1,0 +1,226 @@
+@charset "UTF-8";
+html {
+  font-size: 125%;
+  line-height: 1.8em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, video, object, embed {
+  max-width: 100%;
+  height: auto !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  color: #999;
+  text-align: center;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus {
+  outline: none;
+}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flexslider {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 0;
+  position: relative;
+  zoom: 1;
+}
+.flexslider:hover .flex-direction-nav a {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+.flexslider .slides {
+  zoom: 1;
+}
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+.flexslider .slides img {
+  width: 100%;
+  display: block;
+}
+.flexslider .slides:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.flex-pauseplay a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  color: #000;
+}
+.flex-pauseplay a:before {
+  font-family: "flexslider-icon";
+  font-size: 20px;
+  display: inline-block;
+  content: "";
+}
+.flex-pauseplay a:hover {
+  opacity: 1;
+}
+.flex-pauseplay a.flex-play:before {
+  content: "";
+}
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+
+.no-js .slides > li:first-child {
+  display: block;
+}
+
+.loading .flex-viewport {
+  max-height: 300px;
+}
+
+.flex-viewport {
+  max-height: 2000px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.carousel li {
+  margin-right: 5px;
+}
+
+.flex-direction-nav {
+  *height: 0;
+}
+.flex-direction-nav a {
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: block;
+  height: 40px;
+  margin: -20px 0 0;
+  overflow: hidden;
+  position: absolute;
+  text-indent: 99999px;
+  top: 50%;
+  width: 40px;
+  z-index: 10;
+}
+.flex-direction-nav a:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+.flex-direction-nav a.flex-prev {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="37.643" height="73.873" viewBox="0 0 37.643 73.873"><path fill="none" stroke="#fff" stroke-width="2" d="M37.29.354L.707 36.937 37.29 73.52"/></svg>');
+  background-position: center left;
+  left: 3%;
+}
+.flex-direction-nav a.flex-next {
+  right: 3%;
+  text-align: right;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="37.643" height="73.873" viewBox="0 0 37.643 73.873"><path fill="none" stroke="#fff" stroke-width="2" d="M.354 73.52l36.582-36.584L.354.354"/></svg>');
+  background-position: center right;
+}
+.flex-direction-nav .flex-disabled {
+  opacity: 0 !important;
+  filter: alpha(opacity=0);
+  cursor: default;
+}
+
+.flex-control-nav {
+  width: 100%;
+  position: relative;
+  bottom: -20px;
+  text-align: center;
+}
+.flex-control-nav li {
+  margin: 0 6px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+.flex-control-paging li a {
+  width: 11px;
+  height: 11px;
+  -moz-border-radius: 5.5px;
+  -webkit-border-radius: 5.5px;
+  border-radius: 5.5px;
+  display: block;
+  background: #666;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-indent: -9999px;
+}
+.flex-control-paging li a:hover {
+  background: #333;
+  background: rgba(0, 0, 0, 0.7);
+}
+.flex-control-paging li a.flex-active {
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+
+.flex-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+}
+.flex-control-thumbs li {
+  width: 25%;
+  float: left;
+  margin: 0;
+}
+.flex-control-thumbs img {
+  width: 100%;
+  display: block;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.flex-control-thumbs:hover {
+  opacity: 1;
+}
+.flex-control-thumbs .flex-active {
+  opacity: 1;
+  cursor: default;
+}

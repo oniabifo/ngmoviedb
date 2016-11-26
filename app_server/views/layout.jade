@@ -1,15 +1,53 @@
-doctype html
-html
-  head
+include mixins
+doctype
+html( lang="en" )
+    head
+        title Abifoluwa Oni movie website
+        meta( charset='utf-8' )
+        meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+        meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+        meta( name='description', content='Baking Bootstrap Snippets with Jade' )
+        //- Bootswatch Theme
+        link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css", rel="stylesheet")
+        link(href='/bootstrap/css/mixin.css', rel='stylesheet')
+        link(href='/bootstrap/css/carousel.css', rel='stylesheet')
+        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css')
+        link(href='/bootstrap/mixin.css', rel='stylesheet')
+        +bootswatch("superhero")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+        
+        
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    title= title
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
-    link(rel='stylesheet', href='/bootstrap/css/style.css')
-  body
-    block content
-    script(src='/javascripts/jquery-1.11.1.min.js')
-    script(src='/javascripts/jquery-1.11.1.min.js')
-    script(src='bootstrap/js/responsiveslides.min.js')
-    script(src='bootstrap/js/jquery.flexisel.js')
+        
+ 
+    body(style="padding-bottom:10rem;")
+      +nav("NGMOVIEDB.ORG", "dropdown_menu")
+          +nav_item( "/", "active" ) Home
+          +nav_item( "/movie" ) Movie
+          +nav_item( "/about" ) About
+          +nav_item_dropdown( "#" )( label="Dropdown")
+              +nav_item( "#" ) Action
+              +nav_item( "#" ) Another action
+              +nav_item( "#" ) Something else here
+              +nav_divider
+              +nav_header Nav header
+              +nav_item( "#" ) Separated link
+              +nav_item( "#" ) One more separated link
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+        script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )
+        
 
+
+
+
+
+      block content
+     
+      footer
+       .row
+         .col-xs-12
+           small &copy; Abifoluwa Oni 2016
+      script(src='/javascripts/jquery-1.11.1.min.js')

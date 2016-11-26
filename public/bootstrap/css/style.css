@@ -1687,3 +1687,8 @@ h2.m_3 {
 	width: 48%;
 }
 }
+.review {padding-bottom: 5px;}
+.panel-body.review-container {padding-top: 0;}
+.review-header {margin-bottom: 10px;}
+.reviewAuthor {margin: 0 5px;}
+.reviewTimestamp{color: #ccc;}
