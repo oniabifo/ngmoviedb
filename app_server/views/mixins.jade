@@ -76,6 +76,10 @@ mixin listText
     .list-group-item-text
         block
 
-
-
+mixin outputRating(ratings)
+  - for (var i = 1; i <= ratings; i++)
+    span.glyphicon.glyphicon-star
+  - for( i = ratings; i < 5; i++)
+    span.glyphicon.glyphicon-star-empty
+            
 //- End navbar mixins

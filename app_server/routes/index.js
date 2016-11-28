@@ -3,7 +3,9 @@ var router = express.Router();
 //var ctrlMain = require('../controllers/main');
 var ctrlMovies = require('../controllers/movies');
 var ctrlOthers = require('../controllers/others');
-var ctrlTvs = require('../controllers/tvs')
+var ctrlTvs = require('../controllers/tvs');
+
+var Doo = require('../controllers/jade-looper.js');
 
 /*var homepageController = function (req, res)
 {

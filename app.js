@@ -4,15 +4,25 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var truncate = require('truncate-html');
+require('./app_server/models/db');
 
 var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
-
+var grab = require('./app_server/controllers/jade-looper');
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'jade');
+app.use(function(req, res, next) {
+
+    // You need to tell your templates about your function
+    // which is done by passing your function to res.locals
+    res.locals.grab = grab;
+    next();
+  });
+
 
 //app.use(favicon());
 app.use(logger('dev'));
@@ -30,8 +40,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
-/// error handlers
 
 // development error handler
 // will print stacktrace
