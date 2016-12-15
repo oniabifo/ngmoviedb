@@ -1,75 +1,96 @@
 /*Get 'movie home page */
-module.exports.homelist = function(req, res){
-	res.render('movies-list', { 
-	  title: 'Ngmoviegb - The largest database containing Nigerian Movies informations and shows.',
-	  pageHeader: {
-		title: 'Ngmoviedb',
-		strapline: 'The largest database containing Nigerian Movies informations and shows.'
-	},
-	movies:[
-	{
-		name: 'Chinasa My Love',
-		desc: 'This incredible family drama is a clear revelation to how things could be when trust and sacrifice is bestowed',
-		ratings: 1,
-		top_acts: ['Chioma Akpotha', 'Uche Odoputa', 'Emeka Enyiocha'],
-		genre: ['Family', 'Drama'],
-		image: '/images/chinasa-poster.jpg',
-		prod_year: 2016
-	},
-	{	name: 'Lack Of Home Training',
-		desc: 'A young and beautiful lady is faced with challenges of life. She is involved in all sort of dirty deals just to make ends meet. Her elder brother on the other is called the Don',
-		ratings: 2,
-		top_acts: ['Omotola Jalade Ekheinde', 'Emeka Enyiocha'],
-		genre: ['Family', 'Drama'],
-		image: '/images/lack_of_home_training.jpg',
-		prod_year: 2016
-		},
-	{
-		name: 'Temple Of Justice 1',
-		desc: 'Omotola is a woman of justice always defending people that needs help and she loves what she does because she fights for justice.',
-		ratings: 3,
-		top_acts: ['Omotola Jalade Ekheinde'],
-		genre: ['Family', 'Drama'],
-		image: '/images/temple_of_justice_1.jpg',
-		prod_year: 2015
-		},
-	{
-		name: 'Temple of Justice 2',
-		desc: 'A young lady lawyer is out to fight for justice for the widows and people in need of her help but she finds herself in a dilemma when her father in law is a culprist of a crime and she needs to defend the other',
-		ratings: 4,
-		top_acts: ['Omotola Jalade Ekheinde'],
-		genre: ['Family', 'Drama', 'Passion'],
-		image: '/images/temple_of_justice_2.jpg',
-		prod_year: 2015
-	},
-	{
-		name: 'Hand Of Destiny Season 1',
-		desc: 'Nothing would make Jake, a playboy to drop the game, not even Keila his fiance, but when he meets Nora in a business arrangement he knew there is something about her that he finds irresistible.',		
-		ratings: 5,
-		top_acts: ['Mike Ezuruonye','Ini edo','Mercy Johnson'],
-		genre: ['Family', 'Drama', 'Passion'],
-		image: '/images/promise_of_love1.jpg',
-		prod_year: 2015
+var request = require('request');
+var apiOptions = {
+	server: "http://localhost:3000"
+};
+if (process.env.NODE_ENV === 'production'){
+	apiOptions = "https://sheltered-bayou-91474.herokuapp.com/";
+}
+var renderHomepage = function(req, res, responseBody){
+	var message;
+	if(!(responseBody instanceof Array)){
+		message = "API LOOKUP ERROR";
+		responseBody = [];
 
-	},
-	{
-		name: 'Hand Of Destiny Season 2',
-		desc: 'Nothing would make Jake, a playboy to drop the game, not even Keila his fiance, but when he meets Nora in a business arrangement he knew there is something about her that he finds irresistible.',
-		ratings: 5,
-		top_acts: ['Mike Ezuruonye','Ini edo','Mercy Johnson'],
-		genre: ['Family', 'Drama', 'Passion'],
-		image: '/images/promise_of_love1.jpg',
-		prod_year: 2015
-	}]
+
+	} else {
+		if(!responseBody.length){
+			message = "No places found nearby";
+		}
+	}
+	res.render('movies-list', {
+			  //title: 'Ngmoviegb - The largest database containing Nigerian Movies informations and shows.',
+			  pageHeader: {
+			title: 'Ngmoviedb',
+			strapline: 'The largest database containing Nigerian Movies informations and shows.'
+			},
+			movies: responseBody
+		});
+	};
+
+module.exports.homelist = function(req, res){
+	var requestOptions, path;
+	path = '/api/movies';
+	requestOptions = {
+		url: apiOptions.server + path,
+		method : "GET",
+		json : {}
+	};
+		request(
+			requestOptions,
+			function(err, response, body){
+				renderHomepage(req, res, body);
+			}
+		);
+	};
+
+
+/*module.exports.movieInfo = function(req, res){
+	res.render('movie', {title: 'Movie information'});
+};*/
+//rendering movie information for movie information through movie id
+var renderMovieInfo = function(req, res, movDetail){
+	res.render('movies',{
+		movie: movDetail,
+		title: movDetail.name
+		
 	});
+	//console.log("This is movie details "+movDetail.name);
+};
+
+module.exports.movieInfo = function(req, res){
+	var requestOptions, path;
+	var url;
+	path = "/api/movies/" + req.params.movieid;
+	//console.log(path);
+	requestOptions = {
+		url : apiOptions.server + path,
+		method : "GET",
+		json : {}
+	};
+	
+	request(
+		requestOptions,
+		function(err, response, movie){
+			var data = movie;
+			console.log(response);
+		renderMovieInfo(req, res, movie);
+		//console.log("This is data " + movie.image);	
+		});
 };
 
 /* Get 'Movie info' page */
-module.exports.movieInfo = function(req, res){
-	res.render('movie', {title: 'Movie information'});
-};
 
 /* Get 'Add review' page */
+var renderCreateForm = function(req, res){
+	res.render('addMovie', {title: 'Add movie'
+});
+};
+module.exports.createMovies = function(req, res){
+	renderCreateForm(req, res);
+};
+
 module.exports.addReview = function(req, res){
 	res.render('movie-review-form', {title: 'Movie review'});
 };
+

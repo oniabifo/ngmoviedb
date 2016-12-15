@@ -1,41 +1,34 @@
 extends layout
 
 block content
-  #banner.page-header
+   .section
     .row
-      .col-lg-12
-        .text-center
-          i
-            h1= pageHeader.title
-            small &nbsp; #{pageHeader.strapline}
-     <br />
-    .row
-      each movie in movies
-        .col-sm-2
-          .card
-            img(class="card-img-top" src="#{movie.image}" alt="Card image cap" height="283" width="207")
-            //-p.lead look 
-        .col-md-4.col-sm-6.col-xs-12
-          +panel(movie.name, "primary") 
-            strong= grab(movie.desc, 90)
-            p
-              strong 
-              each top_act in movie.top_acts
-                i #{top_act}&nbsp;.&nbsp;
-            p 
-              strong|Genre:&nbsp; 
-              each genres in movie.genre
-                i #{genres}.&nbsp;
-            p 
-              small &nbsp;
-                +outputRating(movie.ratings)      
-            p  
-              span.glyphicon.glyphicon-heart
-              | &nbsp;&nbsp;&nbsp;&nbsp;
-              span.glyphicon.glyphicon-play-circle
-              | &nbsp; &nbsp;&nbsp; #{movie.prod_year}
-              |&nbsp;
-              span.glyphicon.glyphicon-calendar
-            p
-              .col-xs-12
-              a.btn.btn-default.pull-right(href='/movie') More Info
+      .text-center
+        i
+          h1= pageHeader.title
+          small &nbsp; #{pageHeader.strapline}
+      .col-lg-10.col-lg-offset-1
+        for movie in movies
+         .col-xs-6(class='.col-md-6')
+          br
+          .row
+          .col-md-4
+            a(href='#')
+                img.img-responsive(src='images/chinasa-poster.jpg', style='height:260px;')
+          .col-md-8
+            h3
+              .span1(type='strong', style='font-size:60%;')
+                h5= grab(movie.name, 20)
+                  span.pull-right
+                    +outputRating(movie.ratings)
+              .span1(style='font-size:50%;')
+                p(style='white-space:pre;')
+                em #{movie.genre}
+                span.pull-right
+                  soft &nbsp; #{movie.productionYear}  
+                  span.glyphicon.glyphicon-calendar
+            p(style='font-size:90%;')
+              em= grab(movie.desc, 150)
+            .col-md-12
+              hr
+            a.pull-right(href="/movies/#{movie._id}") More Info

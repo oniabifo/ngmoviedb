@@ -1,0 +1,59 @@
+extends layout
+
+block content
+	.section
+		.row
+			.col-lg-10.col-lg-offset-1
+				.col-lg-6
+					form.form-horizontal(role='form', action='/movies/create/new', method='post')
+						.row
+							.col-xs-6
+								.form-group
+									label(for='movieName') Name
+									input#movieName.form-control(type='text', aria-describedby='nameHelp', placeholder='Enter name')
+									small#emailHelp.form-text.text-muted Movie will be made available to public
+						.row
+							.col-lg-6
+								.form-group
+									label(for='desc') Description
+									textarea#desc.form-control(rows='3')
+						.row
+							.col-lg-4
+								.form-group
+									label(for='ratings') Movie ratings
+									select#exampleSelect1.form-control
+										option 1
+										option 2
+										option 3
+										option 4
+										option 5
+						.row
+							.col-lg-4
+								.form-group
+									label(for='productionYear') Production Year
+									select#productionYear.form-control
+										option 2010
+										option 2011
+										option 2012
+										option 2013
+										option 2014
+										option 2015
+										option 2016
+						.row
+							.col-xs-6
+								.form-group
+									label(for='genreName') Genre
+									input#genreName.form-control(type='text', aria-describedby='nameHelp', placeholder='Seperate with commas')
+									small#genreHelp.form-text.text-muted Movie will be made available to public
+						.form-group
+							.row
+								.col-lg-3
+									label(for='actorName') first Name
+									input#firstName.form-control(type='text', aria-describedby='firstNameHelp', placeholder='firstname')
+								.col-lg-3
+									.form-group
+										label(for='actorName') Last Name
+										input#lastName.form-control(type='text', aria-describedby='lastNameHelp', placeholder='lastName')
+						br
+						button.btn.btn-primary(type='submit') Submit
+	

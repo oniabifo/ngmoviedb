@@ -5,8 +5,6 @@ var ctrlMovies = require('../controllers/movies');
 var ctrlOthers = require('../controllers/others');
 var ctrlTvs = require('../controllers/tvs');
 
-var Doo = require('../controllers/jade-looper.js');
-
 /*var homepageController = function (req, res)
 {
 	res.render('index', {title: 'ngmoviedb.org'})
@@ -16,14 +14,16 @@ var Doo = require('../controllers/jade-looper.js');
 
 /*Movie pages*/
 router.get('/', ctrlMovies.homelist);
-router.get('/movie', ctrlMovies.movieInfo);
-router.get('/movie/review/new', ctrlMovies.addReview);
+router.get('/movies/:movieid', ctrlMovies.movieInfo);
+router.get('/movies/review/new', ctrlMovies.addReview);
 //This is for the main homepage. //router.get('/', ctrlMain.index);
+//router to create movies
+router.post('/movies/create/new', ctrlMovies.createMovies);
 
 //for tv shows
 router.get('/tvshows', ctrlTvs.tvshows);
 router.get('/tvshows/info', ctrlTvs.tvInfo);
-router.get('/tvshows/review/new', ctrlTvs.addReview);
+router.post('/tvshows/review/new', ctrlTvs.addReview);
 
 /*other pages*/
 //about the movie homepage

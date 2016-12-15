@@ -7,6 +7,10 @@ module.exports =function truncate(str, num) {
       truncd = truncd.substr(0, Math.min(truncd.length, truncd.lastIndexOf(" "))) + '...';
         return truncd;
     }
+
+    else if ( str.length <= num){
+      return str;
+    }
     //console.log(str);
     return truncd;
 }

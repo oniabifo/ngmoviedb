@@ -1,0 +1,155 @@
+extends layout
+
+block content
+  .section
+  .row
+    .col-lg-12(style='background-color:#585858')
+      .col-lg-10.col-lg-offset-1
+        .col-md-4
+          br
+          font(color='white')
+              img.img-responsive(src='https://i.ytimg.com/vi/B30uSvLmnDQ/maxresdefault.jpg', style='height:450px;')
+          br
+        .col-md-8
+          font(color='white')
+            h3
+              em
+                .span(type='strong', style='font-size:130%;')
+                  | #{movie.name}
+                  span.pull-right(style='font-size:70%;')
+                    +outputRating(movie.ratings)
+          br
+          button.btn.btn-default(type='button', style='background-color:#585858')
+            a.tooltipLink(data-toggle='tooltip', data-original-title='Log In to rate this movie')
+              font(color='white')
+                span.glyphicon.glyphicon-star(style='font-size:1.5em;')
+          |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          button.btn.btn-default(type='button', style='background-color:#585858')
+            |&nbsp;
+            a.tooltipLink(data-toggle='tooltip', data-original-title='Log In to like this movie')
+              font(color='white')
+                span.glyphicon.glyphicon-heart(style='font-size:1.5em;')
+          |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          button.btn.btn-default(type='button', style='background-color:#585858')
+            a.tooltipLink(data-toggle='tooltip', data-original-title='Log In to Edit')
+              font(color='white')
+                span.glyphicon.glyphicon-th-list(style='font-size:1.5em;')
+          br
+          br
+          font(color='white')
+            em
+              .span(type='strong', style='font-size:120%;') Available On:
+            br
+            em
+              .span(type='strong', style='font-size:140%;') Description
+            br
+            p #{movie.desc}
+          br
+          em
+            font(color='white')
+              .span(type='strong', style='font-size:140%;') Featured Crew
+      .col-lg-12
+        .col-lg-10.col-lg-offset-1
+          em
+            .span(type='strong', style='font-size:140%;', text='center')
+              font(color='white') Top Acts
+            br
+          each actors in movie.Actors
+            .col-md-2
+              img.center-block.img-circle.img-responsive(src='http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png')
+              br
+              font(color='white')
+                .span(type='strong', style='font-size:100%;')
+                  .text-center #{actors.firstname} #{actors.lastname}
+                  p.text-center Developer
+  .row
+    .col-lg-10.col-lg-offset-1
+      .col-xs-6.col-sm-3
+        br
+        br
+        h4 Movie Data
+        br
+        em
+          font(color='#0A2A22') 
+          strong Status  
+        p Released
+        em
+          font(color='#0A2A22')
+          strong Language
+        p English
+        em
+          font(color='#0A2A22') 
+          strong RunTime  
+        p 2hrs 40mins
+        em
+          font(color='#0A2A22') 
+          strong Budget
+        p ₦1000000.00
+        em
+          font(color='#0A2A22') 
+          strong Revenue  
+        p ₦10000000.00
+        em
+          font(color='#0A2A22')
+          strong Homepage  
+        p www.oniabifo.eu.pn
+        em
+          font(color='#0A2A22') 
+          strong Release Information 
+        p www.oniabifo.eu.pn
+      .col-xs-6.col-sm-3
+        br
+        br
+        br
+        em
+          font(color='#0A2A22') 
+          strong Genre  
+        p #{movie.genre}
+        em
+          font(color='#0A2A22') 
+          strong Sequel  
+        p Yoruba
+      //
+        Add the extra clearfix for only the required viewport
+      .clearfix.visible-xs-block
+      .col-xs-6.col-sm-6(style='background-color:#D8D8D8')
+        br
+        br
+        br
+        #accordion.panel-group
+          .panel.panel-success
+            .panel-heading
+              h4.panel-title
+                a(data-toggle='collapse', data-parent='#accordion', href='#collapse1') Professional Review 1 
+            #collapse1.panel-collapse.collapse
+              .panel-body
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod
+                | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis
+                | nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          .panel.panel-success
+            .panel-heading
+              h4.panel-title
+                a(data-toggle='collapse', data-parent='#accordion', href='#collapse2') Professional Review 2
+            #collapse2.panel-collapse.collapse
+              .panel-body
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod
+                | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis
+                | nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          .panel.panel-success
+            .panel-heading
+              h4.panel-title
+                a(data-toggle='collapse', data-parent='#accordion', href='#collapse3') Professional Review 3
+            #collapse3.panel-collapse.collapse
+              .panel-body
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod
+                | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis
+                | nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          .panel.panel-success
+            .panel-heading
+              h4.panel-title
+                a(data-toggle='collapse', data-parent='#accordion', href='#collapse4') Professional Review 4
+            #collapse4.panel-collapse.collapse
+              .panel-body
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod
+                | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis
+                | nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
