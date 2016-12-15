@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbURI ='mongodb://localhost/ngmoviedb';
 if(process.env.NODE_ENV === 'production'){
-	dbURI ='mongodb://heroku_kddt8q8p:erttuthjqqhd03qt39temqihkh@ds111748.mlab.com:11748/heroku_kddt8q8p';
+	dbURI = '';
 }
 mongoose.connect(dbURI);
 
